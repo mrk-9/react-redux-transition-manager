@@ -1,0 +1,96 @@
+{
+  "name": "react-redux-transition-manager",
+  "version": "1.3.2",
+  "description": "Higher order component to enable loading states between route transitions",
+  "keywords": "react, redux, react-router, transition, page, route",
+  "main": "lib/index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kellyrmilligan/react-redux-transition-manager"
+  },
+  "scripts": {
+    "build": "npm-run-all clean standard babel",
+    "babel": "babel src -d . -D -s",
+    "babel:watch": "babel src -d . -w -D -s",
+    "clean": "rimraf ./lib",
+    "dev": "npm-run-all clean standard --parallel babel:watch standard:watch",
+    "prepublish": "npm run build",
+    "standard": "standard --verbose | snazzy",
+    "standard:watch": "onchange 'src/**/*.js' -- npm run standard",
+    "test": "cross-env NODE_ENV=test standard && jest",
+    "test:watch": "npm run test -- --watch",
+    "test:coveralls": "cat ./coverage/lcov.info | ./node_modules/.bin/coveralls"
+  },
+  "author": "Kelly Milligan",
+  "license": "ISC",
+  "jest": {
+    "testPathDirs": [
+      "src"
+    ],
+    "moduleDirectories": [
+      "node_modules",
+      "src"
+    ],
+    "moduleFileExtensions": [
+      "js",
+      "json"
+    ],
+    "coverageDirectory": "coverage",
+    "collectCoverage": true,
+    "testRegex": "(/__tests__/.*|\\.(test))\\.js$",
+    "coverageThreshold": {
+      "global": {
+        "branches": 10,
+        "functions": 10,
+        "lines": 10,
+        "statements": 10
+      }
+    },
+    "coveragePathIgnorePatterns": [
+      "/node_modules/",
+      "/fixtures/",
+      "/script/"
+    ]
+  },
+  "standard": {
+    "parser": "babel-eslint"
+  },
+  "peerDependencies": {
+    "react": "^15.3.0",
+    "react-dom": "^15.3.0",
+    "react-redux": "^5.0.1",
+    "reselect": "^2.5.4",
+    "redux": "^3.6.0",
+    "react-router-fetch": "^1.0.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.11.4",
+    "babel-core": "^6.6.4",
+    "babel-eslint": "^7.1.1",
+    "babel-jest": "^17.0.2",
+    "babel-plugin-add-module-exports": "^0.2.1",
+    "babel-preset-latest": "^6.16.0",
+    "babel-preset-react": "^6.16.0",
+    "babel-preset-stage-2": "^6.18.0",
+    "babel-runtime": "^6.11.6",
+    "coveralls": "^2.11.15",
+    "cross-env": "^3.1.3",
+    "enzyme": "^2.6.0",
+    "jest": "^17.0.3",
+    "nodemon": "^1.9.0",
+    "npm-run-all": "^3.1.2",
+    "onchange": "^3.0.2",
+    "react": "^15.3.0",
+    "react-addons-test-utils": "^15.4.1",
+    "react-dom": "^15.3.0",
+    "react-redux": "^5.0.1",
+    "react-router": "^3.0.0",
+    "react-router-fetch": "^1.0.0",
+    "redux": "^3.6.0",
+    "reselect": "^2.5.4",
+    "rimraf": "^2.5.4",
+    "snazzy": "^5.0.0",
+    "source-map-support": "^0.4.0",
+    "standard": "^8.5.0"
+  }
+}
